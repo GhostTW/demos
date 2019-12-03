@@ -4,8 +4,19 @@
    // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
    "version": "0.2.0",
    "configurations": [
+   {
+     "name": "http-client .NET Core Launch (console)",
+     "type": "coreclr",
+     "request": "launch",
+     "preLaunchTask": "build",
+     "program": "${workspaceFolder}/bin/Debug/netcore3.0/http-client.dll",
+     "args": [],
+     "cwd": "${workspaceFolder}/httpclient-http2-core-2-3",
+     "stopAtEntry": false,
+     "console": "internalConsole"
+   },
         {
-            "name": ".NET Core Launch (console)",
+            "name": "NetCore3Service .NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
