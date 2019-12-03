@@ -5,3 +5,7 @@
 ## net-core-3-services
 
 實驗 .net core 3.0 background service 程式在 windows 及 linux 上的使用方式。
+
+## httpclient-http2-core-2-3
+
+實驗 .net core 3.0 HttpRequestMessage default settings.
