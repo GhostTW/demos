@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  background-service:
+    container_name: net-core-3-services
+    build:
+      context:  ./
+      dockerfile: Dockerfile
+    expose:
+    - "5001"
