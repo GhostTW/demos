@@ -1,0 +1,13 @@
+# step 1 get current session isolation level setting.
+SELECT @@TX_ISOLATION;
+
+# step 2
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SELECT @@TX_ISOLATION;
+
+# step 3
+SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+# step 4 get current session working transaction.
+START TRANSACTION;
+SELECT @@IN_TRANSACTION; 

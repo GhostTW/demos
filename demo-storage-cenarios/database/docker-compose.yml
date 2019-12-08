@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  TestDB:
+    image: mariadb:10.3.15
+    ports:
+      - "3326:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass.123
+    volumes:
+      - "./dump:/docker-entrypoint-initdb.d"
+      - "./my.cnf:/etc/mysql/my.cnf"
+    stdin_open: true
+    tty: true
+
+  mongoTest:
+    image: mongo
+    container_name: mongoTest
+    ports:
+      - "27017:27017"
+    entrypoint: [ "mongod", "--bind_ip_all", "--replSet", "rs0;" ]
+  mongoClient:
+    image: mongo
+    container_name: mongoClient
+    links:
+      - mongoTest
+    volumes:
+      - ./mongodb_scripts:/deployment_scripts
+    command: 
+      - /deployment_scripts/init.sh
+    depends_on:
+      - mongoTest
+
+  TestRedis:
+    image: redis
+    ports:
+     - "6379:6379"
