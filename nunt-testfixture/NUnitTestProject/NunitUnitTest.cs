@@ -13,10 +13,7 @@ namespace TestFrameworksProject
 
         public List<int> listOneTimeSetup;
 
-        public NunitUnitTest()
-        {
-            list = new List<int>();
-        }
+        public NunitUnitTest() => list = new List<int>();
 
         [OneTimeSetUp]
         public void OneTimeInit() => listOneTimeSetup = new List<int>();
